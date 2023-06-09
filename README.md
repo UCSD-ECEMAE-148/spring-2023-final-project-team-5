@@ -12,3 +12,5 @@
 # Our Robot
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/4e3ba3bd-a8e5-476e-af54-031f0d7d162b)
  
+# The Circuit Diagram
+<img width="689" alt="image" src="https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/114700732/3ea9eb5f-e87d-42db-82ef-71abc0a1a276">
