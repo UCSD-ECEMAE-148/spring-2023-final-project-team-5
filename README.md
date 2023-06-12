@@ -86,6 +86,10 @@ __Parts List__
 ## Autonomous Laps
 ### Here are our autonomous laps as part of our class deliverables and preparation for the final project:
 
+* Lane detection using OpenCV + ROS2: https://youtu.be/ensYDWS0fc4
+* Inner lane: https://drive.google.com/file/d/1SGNKMuTuL6o_IKrJB7Sfbhk6654geIMa/view?usp=drive_link
+* Outer lane: https://drive.google.com/file/d/1BtGmwQEgpboFYSuyDKBHTyqufXaYvAOl/view?usp=drive_link
+* GPS: https://youtu.be/IlAwR1aKfdU
 
 ## Acknowledgements
 ### A special thank you Prof. Jack Silberman and TAs Moises Lopez and Kishore Nukala for all your help and support!
