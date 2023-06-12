@@ -55,7 +55,9 @@ __Parts List__
 * Micro USB to USB cable
 * 5V, 4A power supply for Jetson Nano
 ## Baseplate
-
+![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/26fd8e2c-5acf-48f4-9e47-6c7ec2a96f17)
+![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/e6602891-79b6-4dc2-9041-1f3944957bf0)
+### *Team 5's baseplate used for mounting electronics and other components (Isometric and Top View)*
 ## Jetson Nano Case
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/2102a021-ed98-42e6-920e-41a2522bfe3f)
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/63896700-373c-46b1-9988-9b9c2bb5c747)
