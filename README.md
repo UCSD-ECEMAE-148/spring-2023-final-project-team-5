@@ -11,7 +11,7 @@
     </p>
 </div>
 
-<img src="images\ourRobot.png" alt="Team 5 Robot" align="center">
+<img src="images\ourRobot.png">
 
 <!-- TABLE OF CONTENTS -->
 <details>
