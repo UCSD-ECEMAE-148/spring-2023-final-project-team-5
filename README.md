@@ -223,7 +223,9 @@ If you are interested in reproducing our project, here are a few steps to get yo
     </ol>
 </ol>
 
-Alternatively you can refer to the `lane_guidance_node.py` and `lane_detection_node.py` programs in `ucsd_robocar_lane_detection2_pkg/ucsd_robocar_lane_detection2_pkg` to adapt our code as needed for your project. We have extensive comments through the code explaining what is happening. Additionally, if you search for <i>(Edit as Wanted)</i> in our code, we have listed the primary areas where one would want to adjust parameters to adapt the lidar usage, pedestrian detection logic, and more.
+Alternatively you can refer to the `lane_guidance_node.py` and `lane_detection_node.py` programs in `ucsd_robocar_lane_detection2_pkg/ucsd_robocar_lane_detection2_pkg` to adapt our code as needed for your project. We have extensive comments through the code explaining what is happening. Additionally, if you search for <i>(Edit as Wanted)</i> in our code, we have listed the primary areas where one would want to adjust parameters to adapt the lidar usage, pedestrian detection logic, and more. Some consistent, but simple and relevant issues we encountered were ensuring file pathways were correct and making sure that all dependencies are installed.
+
+**Best of luck!**
 
 <hr>
 
@@ -240,8 +242,8 @@ Special thanks to Professor Jack Silberman and TAs (Kishore Nukala & Moises Lope
 ## Contacts
 
 * Shasta Subramanian - s1subram@ucsd.edu | shasta.subramanian@gmail.com
-* Armond Greenberg - argreenb@ucsd.edu
-* Zixu Hao - ax008324@ucsd.edu
-* Jacob Chandler - j1cortez@ucsd.edu
+* Armond Greenberg - 
+* Zixu Hao - 
+* Jacob Chandler - 
 
 
