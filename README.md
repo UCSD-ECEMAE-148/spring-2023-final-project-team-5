@@ -34,13 +34,12 @@
     <li><a href="#hardware">Hardware</a></li>
     <li><a href="#gantt-chart">Gantt Chart</a></li>
     <li><a href="#course-deliverables">Course Deliverables</a></li>
+    <li><a href="#project-reproduction">Project Reproduction</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#contacts">Contacts</a></li>
   </ol>
 </details>
 <hr>
-
-
 
 ## Team Members
 Shasta Subramanian (ECE) - [LinkedIn](https://www.linkedin.com/in/shasta-subramanian/)
@@ -203,6 +202,30 @@ Here are our presentation slides for the weekly project updates and final presen
 [Team 5 Presentation](https://docs.google.com/presentation/d/1sPPWAnGMisoc15QvhqSP7sxDoCSJ5Mn_mOzy9liQnEs/edit?usp=sharing)
 <hr>
 
+## Project Reproduction
+If you are interested in reproducing our project, here are a few steps to get you started with our repo:
+
+<ol>
+  <li>Clone this repository</li>
+  <li>Replace the <i>ucsd_robocar_sensor2_pkg</i> and <i>ucsd_robocar_lane_detection2_pkg</i> in the default <i>ucsd_robocar_hub2</i> directory</li>
+  <li> Calibrate Your Robot
+    <ol>
+      <li>Toggle <i>camera_nav_calibration</i> to 1 and <i>camera_nav</i> to 0 within <i>node_config.yaml</i></li>
+      <li>Run <i>source_ros2</i>, <i>build_ros2</i>, and then <i>ros2 launch ucsd_robocar_nav2_pkg all_nodes.launch.py</i> </li>
+      <li>Adjust sliders within GUI to ensure gold mask is clear with <b>NO</b> noise </li>
+      <li>Toggle <i>camera_nav_calibration</i> to 0 and <i>camera_nav</i> to 1 within <i>node_config.yaml</i></li>
+      <li>Update your PID and throttle values in <i>ros_racer_calibration.yaml</i></li>
+    </ol>
+  </li>
+  <li>Run on Track</li>
+    <ol>
+        <li>Run <i>source_ros2</i>, <i>build_ros2</i>, and then <i>ros2 launch ucsd_robocar_nav2_pkg all_nodes.launch.py</i> </li>
+    </ol>
+</ol>
+
+Alternatively you can refer to the `lane_guidance_node.py` and `lane_detection_node.py` programs in `ucsd_robocar_lane_detection2_pkg/ucsd_robocar_lane_detection2_pkg` to adapt our code as needed for your project. We have extensive comments through the code explaining what is happening. Additionally, if you search for <i>(Edit as Wanted)</i> in our code, we have listed the primary areas where one would want to adjust parameters to adapt the lidar usage, pedestrian detection logic, and more.
+
+<hr>
 
 ## Acknowledgements
 Special thanks to Professor Jack Silberman and TAs (Kishore Nukala & Moises Lopez) for all the support!
