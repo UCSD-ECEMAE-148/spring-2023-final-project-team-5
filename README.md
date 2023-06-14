@@ -14,6 +14,22 @@ Team 5 Spring 2023
 
 **insert image of robot**
 
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#team-members">Team Members</a></li>
+    <li><a href="#abstract">Abstract</a></li>
+    <li><a href="#what-we-promised">What We Promised</a></li>
+    <li><a href="#accomplishments">Accomplishments</a></li>
+    <li><a href="#challenges">Challenges</a></li>
+    <li><a href="#final-project-videos">Final Project Videos</a></li>
+    <li><a href="#software">Software</a></li>
+    <li><a href="#hardware">Hardware</a></li>
+    <li><a href="#gantt-chart">Gantt Chart</a></li>
+  </ol>
+</details>
+
 ## Team Members
 Shasta Subramanian (ECE)
 
@@ -31,10 +47,6 @@ The goals of our team's final project was implementing obstacle avoidance and pe
 * If a pedestrian is detected the robot will stop until the person is no longer detected using the OakD Lite Camera
 * The previous two objectives would also be achieved while line following and within ROS2
 
-## Challenges
-* Combining our obstacle avoidance program on the track with the pedestrian detection proved to be more complicated than initially expected
-* Adapting the various nodes, creating unique publishers/subscribers, and implementing all of our code within ROS2
-
 ## Accomplishments
 * Achieved all of our promised goals successfully 
 * Completed project within ROS2
@@ -42,8 +54,29 @@ The goals of our team's final project was implementing obstacle avoidance and pe
 * Extremely accurate person detection (almost too good)
 * * Works on real humans and print out images
 
-## Gantt Chart
-![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/ac5c8ead-56f3-41d3-8ed3-f4c0331c360c)
+## Challenges
+* Combining our obstacle avoidance program on the track with the pedestrian detection proved to be more complicated than initially expected
+* Adapting the various nodes, creating unique publishers/subscribers, and implementing all of our code within ROS2
+
+## Final Project Videos
+**Final Clips**
+Everything Together (3rd Person)
+
+Everything Together (POV)
+
+Obstacle Avoidance
+
+
+Pedestrian Detection
+
+
+**Progress Clips**
+Early Obstacle Avoidance
+
+Early Pedestrian Detection
+
+## Software
+input
 
 ## Hardware 
 
@@ -74,38 +107,39 @@ __Parts List__
 * USB-C to USB-A cable
 * Micro USB to USB cable
 * 5V, 4A power supply for Jetson Nano
-## Baseplate
+__Baseplate__
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/26fd8e2c-5acf-48f4-9e47-6c7ec2a96f17)
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/e6602891-79b6-4dc2-9041-1f3944957bf0)
-### *Team 5's baseplate used for mounting electronics and other components (Isometric and Top View)*
-## Jetson Nano Case
+**Team 5's baseplate used for mounting electronics and other components (Isometric and Top View)**
+
+__Jetson Nano Case__
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/2102a021-ed98-42e6-920e-41a2522bfe3f)
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/63896700-373c-46b1-9988-9b9c2bb5c747)
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/9ef2de13-563a-4913-a153-63b0cf8d14c7)
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/17c07153-c1a1-49b8-80e3-6d8203097c39)
-### *Team 5's Jetson Nano Case from top to bottom (Isometric, Top, Right, and Front View). Credit to yun3d at https://www.thingiverse.com/thing:3778338*
+**Team 5's Jetson Nano Case from top to bottom (Isometric, Top, Right, and Front View). Credit to yun3d at https://www.thingiverse.com/thing:3778338**
 
-## Camera Mount
+__Camera Mount__
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/5c09cbd4-6bd3-4c49-9e59-29f13cd2f1fd)
-### *Credit for this portion of the camera mount to Matstic at https://www.thingiverse.com/thing:5336496*
+**Credit to Matstic at https://www.thingiverse.com/thing:5336496**
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/8272498f-241f-45ee-80ac-fcd6efa82b10)
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/dfee34c8-abdf-4bed-a303-4a3d9dcf1e5c)
-
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/979798ce-7823-4885-bd02-62e6fe5d953e)
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/fd08ccc0-b16f-4b23-b3a5-b96e650e1717)
-### *Team 5's Camera Mount from top to bottom (Isometric, Right, Front, and Top View).*
+**Team 5's Camera Mount from top to bottom (Isometric, Right, Front, and Top View).**
+
 ## Our Robot
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/4e3ba3bd-a8e5-476e-af54-031f0d7d162b)
-### *Team 5's fully assembled robot that utilizes an angled down Oak D Lite and LIDAR*
 
-## Circuit Diagram
+__Circuit Diagram__
 <img width="689" alt="image" src="https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/114700732/3ea9eb5f-e87d-42db-82ef-71abc0a1a276">
 
-### * Team 5 followed the circuit diagram given by the instructors in the documentation provided *
+**Diagram provided in documentation**
 
-## Software Documentation
+## Gantt Chart
+![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/ac5c8ead-56f3-41d3-8ed3-f4c0331c360c)
 
-## Autonomous Laps
+## Course Deliverables
 ### Here are our autonomous laps as part of our class deliverables and preparation for the final project:
 
 * Lane detection using OpenCV + ROS2: https://youtu.be/ensYDWS0fc4
