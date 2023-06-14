@@ -26,13 +26,17 @@ CAMERA_TOPIC_NAME = '/camera/color/image_raw'
 ACTUATOR_TOPIC_NAME = '/cmd_vel'
 
 IMG_WINDOW_NAME = 'img'
-BW_WINDOW_NAME = 'blackAndWhiteImage'
-MASK_WINDOW_NAME = 'mask'
+BW_WINDOW_NAME_1 = 'blackAndWhiteImage_gold'
+BW_WINDOW_NAME_2 = 'blackAndWhiteImage_silver'
+MASK_WINDOW_NAME_1 = 'Golden_Mask'
+MASK_WINDOW_NAME_2 = 'Silver_Tear_Mask'
 THR_STR_WINDOW_NAME = 'throttle_and_steering'
 
 cv2.namedWindow(IMG_WINDOW_NAME)
-cv2.namedWindow(BW_WINDOW_NAME)
-cv2.namedWindow(MASK_WINDOW_NAME)
+cv2.namedWindow(BW_WINDOW_NAME_1)
+cv2.namedWindow(BW_WINDOW_NAME_2)
+cv2.namedWindow(MASK_WINDOW_NAME_1)
+cv2.namedWindow(MASK_WINDOW_NAME_2)
 cv2.namedWindow(THR_STR_WINDOW_NAME)
 
 #
@@ -50,24 +54,43 @@ def slider_to_normalized(slider_input):
     return normalized_output
 
 
-lowH = 0
-highH = 179
-lowS = 0
-highS = 255
-lowV = 0
-highV = 255
+lowH_silver = 0
+highH_silver = 179
+lowS_silver = 0
+highS_silver = 255
+lowV_silver = 0
+highV_silver = 255
 
-glow = 0
-ghigh = 255
+lowH_gold = 0
+highH_gold = 179
+lowS_gold = 0
+highS_gold = 255
+lowV_gold = 0
+highV_gold = 255
 
-not_inverted = 0
-inverted = 1
+glow_gold = 0
+ghigh_gold = 255
 
-blur_kernal_min = 1
-blur_kernal_max = 50
+not_inverted_gold = 0
+inverted_gold = 1
 
-dilation_min = 1
-dilation_max = 10
+blur_kernal_min_gold = 1
+blur_kernal_max_gold = 50
+
+dilation_min_gold = 1
+dilation_max_gold = 10
+
+glow_silver = 0
+ghigh_silver = 255
+
+not_inverted_silver = 0
+inverted_silver = 1
+
+blur_kernal_min_silver = 1
+blur_kernal_max_silver = 50
+
+dilation_min_silver = 1
+dilation_max_silver = 10
 
 min_width = 10
 max_width = 500
@@ -120,18 +143,32 @@ throttle_polarity_normal = 1
 throttle_polarity_reversed = 0
 
 # CV filtering 
-cv2.createTrackbar('lowH', MASK_WINDOW_NAME , lowH, highH, callback)
-cv2.createTrackbar('highH', MASK_WINDOW_NAME , highH, highH, callback)
-cv2.createTrackbar('lowS', MASK_WINDOW_NAME , lowS, highS, callback)
-cv2.createTrackbar('highS', MASK_WINDOW_NAME , highS, highS, callback)
-cv2.createTrackbar('lowV', MASK_WINDOW_NAME , lowV, highV, callback)
-cv2.createTrackbar('highV', MASK_WINDOW_NAME , highV, highV, callback)
+cv2.createTrackbar('lowH_gold', MASK_WINDOW_NAME_1 , lowH_gold, highH_gold, callback)
+cv2.createTrackbar('highH_gold', MASK_WINDOW_NAME_1 , highH_gold, highH_gold, callback)
+cv2.createTrackbar('lowS_gold', MASK_WINDOW_NAME_1 , lowS_gold, highS_gold, callback)
+cv2.createTrackbar('highS_gold', MASK_WINDOW_NAME_1 , highS_gold, highS_gold, callback)
+cv2.createTrackbar('lowV_gold', MASK_WINDOW_NAME_1 , lowV_gold, highV_gold, callback)
+cv2.createTrackbar('highV_gold', MASK_WINDOW_NAME_1 , highV_gold, highV_gold, callback)
 
-cv2.createTrackbar('gray_lower', BW_WINDOW_NAME , glow, ghigh, callback)
-cv2.createTrackbar('Inverted_filter', BW_WINDOW_NAME , not_inverted, inverted, callback)
-cv2.createTrackbar('kernal_size', BW_WINDOW_NAME , blur_kernal_min, blur_kernal_max, callback)
-cv2.createTrackbar('erosion_itterations', BW_WINDOW_NAME , dilation_min, dilation_max, callback)
-cv2.createTrackbar('dilation_itterations', BW_WINDOW_NAME , dilation_min, dilation_max, callback)
+cv2.createTrackbar('lowH_silver', MASK_WINDOW_NAME_2 , lowH_silver, highH_silver, callback)
+cv2.createTrackbar('highH_silver', MASK_WINDOW_NAME_2 , highH_silver, highH_silver, callback)
+cv2.createTrackbar('lowS_silver', MASK_WINDOW_NAME_2 , lowS_silver, highS_silver, callback)
+cv2.createTrackbar('highS_silver', MASK_WINDOW_NAME_2 , highS_silver, highS_silver, callback)
+cv2.createTrackbar('lowV_silver', MASK_WINDOW_NAME_2 , lowV_silver, highV_silver, callback)
+cv2.createTrackbar('highV_silver', MASK_WINDOW_NAME_2 , highV_silver, highV_silver, callback)
+
+
+cv2.createTrackbar('gray_lower_gold', BW_WINDOW_NAME_1 , glow_gold, ghigh_gold, callback)
+cv2.createTrackbar('Inverted_filter_gold', BW_WINDOW_NAME_1 , not_inverted_gold, inverted_gold, callback)
+cv2.createTrackbar('kernal_size_gold', BW_WINDOW_NAME_1 , blur_kernal_min_gold, blur_kernal_max_gold, callback)
+cv2.createTrackbar('erosion_itterations_gold', BW_WINDOW_NAME_1 , dilation_min_gold, dilation_max_gold, callback)
+cv2.createTrackbar('dilation_itterations_gold', BW_WINDOW_NAME_1 , dilation_min_gold, dilation_max_gold, callback)
+
+cv2.createTrackbar('gray_lower_silver', BW_WINDOW_NAME_2 , glow_silver, ghigh_silver, callback)
+cv2.createTrackbar('Inverted_filter_silver', BW_WINDOW_NAME_2 , not_inverted_silver, inverted_silver, callback)
+cv2.createTrackbar('kernal_size_silver', BW_WINDOW_NAME_2 , blur_kernal_min_silver, blur_kernal_max_silver, callback)
+cv2.createTrackbar('erosion_itterations_silver', BW_WINDOW_NAME_2 , dilation_min_silver, dilation_max_silver, callback)
+cv2.createTrackbar('dilation_itterations_silver', BW_WINDOW_NAME_2 , dilation_min_silver, dilation_max_silver, callback)
 
 # Tracking constraints
 cv2.createTrackbar('min_width', IMG_WINDOW_NAME, min_width, max_width, callback)
@@ -170,6 +207,15 @@ class Calibration(Node):
         super().__init__(CALIBRATION_NODE_NAME)
         self.twist_publisher = self.create_publisher(Twist, ACTUATOR_TOPIC_NAME, 10)
         self.twist_cmd = Twist()
+        
+        '''
+        #My personal attempt at making this publish a specific value
+        self.publisher_ = self.create_publisher(Float32, CALIBRATION_NODE_NAME, 10)
+        #timer_period = 0.5  # seconds
+        #self.timer = self.create_timer(timer_period, self.timer_callback)
+        self.p = 0.0
+        '''
+        
         self.camera_subscriber = self.create_subscription(Image, CAMERA_TOPIC_NAME, self.live_calibration_values, 10)
         self.camera_subscriber
         self.bridge = CvBridge()
@@ -187,23 +233,35 @@ class Calibration(Node):
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('Hue_low',1),
-                ('Hue_high',1),
-                ('Saturation_low',1),
-                ('Saturation_high',1),
-                ('Value_low',1),
-                ('Value_high',1),
-                ('gray_lower',1),
-                ('inverted_filter',0),
-                ('kernal_size',1),
-                ('erosion_itterations',1),
-                ('dilation_itterations',1),
+                ('Hue_low_gold',1),
+                ('Hue_high_gold',1),
+                ('Saturation_low_gold',1),
+                ('Saturation_high_gold',1),
+                ('Value_low_gold',1),
+                ('Value_high_gold',1),
+                ('Hue_low_silver',1),
+                ('Hue_high_silver',1),
+                ('Saturation_low_silver',1),
+                ('Saturation_high_silver',1),
+                ('Value_low_silver',1),
+                ('Value_high_silver',1),
+                ('gray_lower_gold',1),
+                ('gray_lower_silver',1),
+                ('Inverted_filter_gold',0),
+                ('Inverted_filter_silver',0),
+                ('kernal_size_gold',1),
+                ('kernal_size_silver',1),
+                ('erosion_itterations_gold',1),
+                ('erosion_itterations_silver',1),
+                ('dilation_itterations_gold',1),
+                ('dilation_itterations_silver',1),
                 ('Width_min',1),
                 ('Width_max',1),
                 ('number_of_lines',1),
-                ('crop_width_decimal',0.8),
-                ('rows_to_watch_decimal',0.2),
-                ('rows_offset_decimal',0.5),
+                ('camera_start_height',1),
+                ('camera_bottom_height',1),
+                ('camera_left_width',1),
+                ('camera_right_width',1),
                 ('camera_centerline',0.5),
                 ('error_threshold', 0.15),
                 ('Kp_steering', 1.0),
@@ -215,32 +273,46 @@ class Calibration(Node):
                 ('zero_throttle',0.0),
                 ('max_throttle', 0.2),
                 ('min_throttle', 0.1),
-                ('max_rpm',20000),
+                ('max_rpm',1000),
                 ('steering_polarity',1),
                 ('throttle_polarity',1)
             ])
 
         # Get previously set params
-        self.Hue_low = self.get_parameter('Hue_low').value
-        self.Hue_high = self.get_parameter('Hue_high').value
-        self.Saturation_low = self.get_parameter('Saturation_low').value
-        self.Saturation_high = self.get_parameter('Saturation_high').value
-        self.Value_low = self.get_parameter('Value_low').value
-        self.Value_high = self.get_parameter('Value_high').value
-        self.gray_lower = self.get_parameter('gray_lower').value
-        self.inverted_filter = self.get_parameter('inverted_filter').value
-        self.kernal_size = self.get_parameter('kernal_size').value
-        self.erosion_itterations = self.get_parameter('erosion_itterations').value
-        self.dilation_itterations = self.get_parameter('dilation_itterations').value
+        self.Hue_low_gold = self.get_parameter('Hue_low_gold').value
+        self.Hue_high_gold = self.get_parameter('Hue_high_gold').value
+        self.Saturation_low_gold = self.get_parameter('Saturation_low_gold').value
+        self.Saturation_high_gold = self.get_parameter('Saturation_high_gold').value
+        self.Value_low_gold = self.get_parameter('Value_low_gold').value
+        self.Value_high_gold = self.get_parameter('Value_high_gold').value
+        
+        self.Hue_low_silver = self.get_parameter('Hue_low_silver').value
+        self.Hue_high_silver = self.get_parameter('Hue_high_silver').value
+        self.Saturation_low_silver = self.get_parameter('Saturation_low_silver').value
+        self.Saturation_high_silver = self.get_parameter('Saturation_high_silver').value
+        self.Value_low_silver = self.get_parameter('Value_low_silver').value
+        self.Value_high_silver = self.get_parameter('Value_high_silver').value
+        
+        self.gray_lower_gold = self.get_parameter('gray_lower_gold').value
+        self.Inverted_filter_gold = self.get_parameter('Inverted_filter_gold').value
+        self.kernal_size_gold = self.get_parameter('kernal_size_gold').value
+        self.erosion_itterations_gold = self.get_parameter('erosion_itterations_gold').value
+        self.dilation_itterations_gold = self.get_parameter('dilation_itterations_gold').value
+        
+        self.gray_lower_silver = self.get_parameter('gray_lower_silver').value
+        self.Inverted_filter_silver = self.get_parameter('Inverted_filter_silver').value
+        self.kernal_size_silver = self.get_parameter('kernal_size_silver').value
+        self.erosion_itterations_silver = self.get_parameter('erosion_itterations_silver').value
+        self.dilation_itterations_silver = self.get_parameter('dilation_itterations_silver').value
+        
         self.number_of_lines = self.get_parameter('number_of_lines').value
         self.error_threshold = self.get_parameter('error_threshold').value
         self.min_width = self.get_parameter('Width_min').value
         self.max_width = self.get_parameter('Width_max').value
-
-        self.crop_width_decimal = self.get_parameter('crop_width_decimal').value
-        self.rows_to_watch_decimal = self.get_parameter('rows_to_watch_decimal').value
-        self.rows_offset_decimal = self.get_parameter('rows_offset_decimal').value
-        
+        self.camera_start_height = self.get_parameter('camera_start_height').value
+        self.camera_bottom_height = self.get_parameter('camera_bottom_height').value
+        self.camera_left_width = self.get_parameter('camera_left_width').value
+        self.camera_right_width = self.get_parameter('camera_right_width').value
         self.camera_centerline = self.get_parameter('camera_centerline').value
         self.error_threshold = self.get_parameter('error_threshold').value 
 
@@ -259,17 +331,32 @@ class Calibration(Node):
         self.throttle_polarity = self.get_parameter('throttle_polarity').value
 
         self.get_logger().info(
-            f'\nHue_low: {self.Hue_low}'
-            f'\nHue_high: {self.Hue_high}'
-            f'\nSaturation_low: {self.Saturation_low}'
-            f'\nSaturation_high: {self.Saturation_high}'
-            f'\nValue_low: {self.Value_low}'
-            f'\nValue_high: {self.Value_high}'
-            f'\ngray_lower: {self.gray_lower}'
-            f'\ninverted_filter: {self.inverted_filter}'
-            f'\nkernal_size: {self.kernal_size}'
-            f'\nerosion_itterations: {self.erosion_itterations}'
-            f'\ndilation_itterations: {self.dilation_itterations}'
+            f'\nHue_low_gold: {self.Hue_low_gold}'
+            f'\nHue_high_gold: {self.Hue_high_gold}'
+            f'\nSaturation_low_gold: {self.Saturation_low_gold}'
+            f'\nSaturation_high_gold: {self.Saturation_high_gold}'
+            f'\nValue_low_gold: {self.Value_low_gold}'
+            f'\nValue_high_gold: {self.Value_high_gold}'
+            
+            f'\nHue_low_silver: {self.Hue_low_silver}'
+            f'\nHue_high_silver: {self.Hue_high_silver}'
+            f'\nSaturation_low_silver: {self.Saturation_low_silver}'
+            f'\nSaturation_high_silver: {self.Saturation_high_silver}'
+            f'\nValue_low_silver: {self.Value_low_silver}'
+            f'\nValue_high_silver: {self.Value_high_silver}'
+            
+            f'\ngray_lower_gold: {self.gray_lower_gold}'
+            f'\nInverted_filter_gold: {self.Inverted_filter_gold}'
+            f'\nkernal_size_gold: {self.kernal_size_gold}'
+            f'\nerosion_itterations_gold: {self.erosion_itterations_gold}'
+            f'\ndilation_itterations_gold: {self.dilation_itterations_gold}'
+            
+            f'\ngray_lower_silver: {self.gray_lower_silver}'
+            f'\nInverted_filter_silver: {self.Inverted_filter_silver}'
+            f'\nkernal_size_silver: {self.kernal_size_silver}'
+            f'\nerosion_itterations_silver: {self.erosion_itterations_silver}'
+            f'\ndilation_itterations_silver: {self.dilation_itterations_silver}'
+            
             f'\nnumber_of_lines: {self.number_of_lines}'
             f'\nerror_threshold: {self.error_threshold}'
             f'\nmin_width: {self.min_width}'
@@ -278,33 +365,50 @@ class Calibration(Node):
 
         try:
             # Set trackbars to previously saved config
-            cv2.setTrackbarPos('lowH', MASK_WINDOW_NAME, self.Hue_low)
-            cv2.setTrackbarPos('highH', MASK_WINDOW_NAME, self.Hue_high)
-            cv2.setTrackbarPos('lowS', MASK_WINDOW_NAME, self.Saturation_low)
-            cv2.setTrackbarPos('highS', MASK_WINDOW_NAME, self.Saturation_high)
-            cv2.setTrackbarPos('lowV', MASK_WINDOW_NAME, self.Value_low)
-            cv2.setTrackbarPos('highV', MASK_WINDOW_NAME, self.Value_high)
-            cv2.setTrackbarPos('gray_lower', BW_WINDOW_NAME, self.gray_lower)
-            cv2.setTrackbarPos('Inverted_filter', BW_WINDOW_NAME, self.inverted_filter)
-            cv2.setTrackbarPos('kernal_size', BW_WINDOW_NAME, self.kernal_size)
-            cv2.setTrackbarPos('erosion_itterations', BW_WINDOW_NAME, self.erosion_itterations)
-            cv2.setTrackbarPos('dilation_itterations', BW_WINDOW_NAME, self.dilation_itterations)
+            cv2.setTrackbarPos('lowH_gold', MASK_WINDOW_NAME_1, self.Hue_low_gold)
+            cv2.setTrackbarPos('highH_gold', MASK_WINDOW_NAME_1, self.Hue_high_gold)
+            cv2.setTrackbarPos('lowS_gold', MASK_WINDOW_NAME_1, self.Saturation_low_gold)
+            cv2.setTrackbarPos('highS_gold', MASK_WINDOW_NAME_1, self.Saturation_high_gold)
+            cv2.setTrackbarPos('lowV_gold', MASK_WINDOW_NAME_1, self.Value_low_gold)
+            cv2.setTrackbarPos('highV_gold', MASK_WINDOW_NAME_1, self.Value_high_gold)
+            
+            cv2.setTrackbarPos('lowH_silver', MASK_WINDOW_NAME_2, self.Hue_low_silver)
+            cv2.setTrackbarPos('highH_silver', MASK_WINDOW_NAME_2, self.Hue_high_silver)
+            cv2.setTrackbarPos('lowS_silver', MASK_WINDOW_NAME_2, self.Saturation_low_silver)
+            cv2.setTrackbarPos('highS_silver', MASK_WINDOW_NAME_2, self.Saturation_high_silver)
+            cv2.setTrackbarPos('lowV_silver', MASK_WINDOW_NAME_2, self.Value_low_silver)
+            cv2.setTrackbarPos('highV_silver', MASK_WINDOW_NAME_2, self.Value_high_silver)
+            
+            cv2.setTrackbarPos('gray_lower_gold', BW_WINDOW_NAME_1, self.gray_lower_gold)
+            cv2.setTrackbarPos('Inverted_filter_gold', BW_WINDOW_NAME_1, self.Inverted_filter_gold)
+            cv2.setTrackbarPos('kernal_size_gold', BW_WINDOW_NAME_1, self.kernal_size_gold)
+            cv2.setTrackbarPos('erosion_itterations_gold', BW_WINDOW_NAME_1, self.erosion_itterations_gold)
+            cv2.setTrackbarPos('dilation_itterations_gold', BW_WINDOW_NAME_1, self.dilation_itterations_gold)
+            
+            cv2.setTrackbarPos('gray_lower_silver', BW_WINDOW_NAME_2, self.gray_lower_silver)
+            cv2.setTrackbarPos('Inverted_filter_silver', BW_WINDOW_NAME_2, self.Inverted_filter_silver)
+            cv2.setTrackbarPos('kernal_size_silver', BW_WINDOW_NAME_2, self.kernal_size_silver)
+            cv2.setTrackbarPos('erosion_itterations_silver', BW_WINDOW_NAME_2, self.erosion_itterations_silver)
+            cv2.setTrackbarPos('dilation_itterations_silver', BW_WINDOW_NAME_2, self.dilation_itterations_silver)
+            
             cv2.setTrackbarPos('min_width', IMG_WINDOW_NAME, self.min_width)
             cv2.setTrackbarPos('max_width', IMG_WINDOW_NAME, self.max_width)
             cv2.setTrackbarPos('number_of_lines', IMG_WINDOW_NAME, self.number_of_lines)
             cv2.setTrackbarPos('error_threshold', IMG_WINDOW_NAME, int(self.error_threshold*100))
-            cv2.setTrackbarPos('camera_centerline', IMG_WINDOW_NAME, int(self.camera_centerline*100))
+            cv2.setTrackbarPos('camera_centerline', IMG_WINDOW_NAME, int(self.error_threshold*100))
 
-            cv2.setTrackbarPos('frame_width', IMG_WINDOW_NAME, int(self.crop_width_decimal * 100))
-            cv2.setTrackbarPos('rows_to_watch', IMG_WINDOW_NAME, int(self.rows_to_watch_decimal * 100))
-            cv2.setTrackbarPos('rows_offset', IMG_WINDOW_NAME, int(self.rows_offset_decimal * 100))
+            ## To do:
+            # self.camera_start_height = self.get_parameter('camera_start_height').value
+            # self.camera_bottom_height = self.get_parameter('camera_bottom_height').value
+            # self.camera_left_width = self.get_parameter('camera_left_width').value
+            # self.camera_right_width = self.get_parameter('camera_right_width').value
 
-            cv2.setTrackbarPos('Kp_steering', THR_STR_WINDOW_NAME, int(self.Kp_steering * 100))
-            cv2.setTrackbarPos('Ki_steering', THR_STR_WINDOW_NAME, int(self.Ki_steering * 100))
-            cv2.setTrackbarPos('Kd_steering', THR_STR_WINDOW_NAME, int(self.Kd_steering * 100))
-            cv2.setTrackbarPos('max_rpm', THR_STR_WINDOW_NAME, int(self.max_rpm))
-            cv2.setTrackbarPos('steering_polarity', THR_STR_WINDOW_NAME, int(self.steering_polarity))
-            cv2.setTrackbarPos('throttle_polarity', THR_STR_WINDOW_NAME, int(self.throttle_polarity))
+            cv2.setTrackbarPos('Kp_steering', THR_STR_WINDOW_NAME, self.Kp_steering)
+            cv2.setTrackbarPos('Ki_steering', THR_STR_WINDOW_NAME, self.Ki_steering)
+            cv2.setTrackbarPos('Kd_steering', THR_STR_WINDOW_NAME, self.Kd_steering)
+            cv2.setTrackbarPos('max_rpm', THR_STR_WINDOW_NAME, self.max_rpm)
+            cv2.setTrackbarPos('steering_polarity', THR_STR_WINDOW_NAME, self.steering_polarity)
+            cv2.setTrackbarPos('throttle_polarity', THR_STR_WINDOW_NAME, self.throttle_polarity)
         except TypeError:
             pass
 
@@ -312,27 +416,38 @@ class Calibration(Node):
     def live_calibration_values(self, data):
         
         # get trackbar positions
-        self.Hue_low = cv2.getTrackbarPos('lowH', MASK_WINDOW_NAME)
-        self.Hue_high = cv2.getTrackbarPos('highH', MASK_WINDOW_NAME)
-        self.Saturation_low = cv2.getTrackbarPos('lowS', MASK_WINDOW_NAME)
-        self.Saturation_high = cv2.getTrackbarPos('highS', MASK_WINDOW_NAME)
-        self.Value_low = cv2.getTrackbarPos('lowV', MASK_WINDOW_NAME)
-        self.Value_high = cv2.getTrackbarPos('highV', MASK_WINDOW_NAME)
-        self.gray_lower = cv2.getTrackbarPos('gray_lower', BW_WINDOW_NAME)
-        self.inverted_filter = cv2.getTrackbarPos('Inverted_filter', BW_WINDOW_NAME)
-        self.kernal_size = cv2.getTrackbarPos('kernal_size', BW_WINDOW_NAME)
-        self.erosion_itterations = cv2.getTrackbarPos('erosion_itterations', BW_WINDOW_NAME)
-        self.dilation_itterations = cv2.getTrackbarPos('dilation_itterations', BW_WINDOW_NAME)
+        self.Hue_low_gold = cv2.getTrackbarPos('lowH_gold', MASK_WINDOW_NAME_1)
+        self.Hue_high_gold = cv2.getTrackbarPos('highH_gold', MASK_WINDOW_NAME_1)
+        self.Saturation_low_gold = cv2.getTrackbarPos('lowS_gold', MASK_WINDOW_NAME_1)
+        self.Saturation_high_gold = cv2.getTrackbarPos('highS_gold', MASK_WINDOW_NAME_1)
+        self.Value_low_gold = cv2.getTrackbarPos('lowV_gold', MASK_WINDOW_NAME_1)
+        self.Value_high_gold = cv2.getTrackbarPos('highV_gold', MASK_WINDOW_NAME_1)
+        
+        self.Hue_low_silver = cv2.getTrackbarPos('lowH_silver', MASK_WINDOW_NAME_2)
+        self.Hue_high_silver = cv2.getTrackbarPos('highH_silver', MASK_WINDOW_NAME_2)
+        self.Saturation_low_silver = cv2.getTrackbarPos('lowS_silver', MASK_WINDOW_NAME_2)
+        self.Saturation_high_silver = cv2.getTrackbarPos('highS_silver', MASK_WINDOW_NAME_2)
+        self.Value_low_silver = cv2.getTrackbarPos('lowV_silver', MASK_WINDOW_NAME_2)
+        self.Value_high_silver = cv2.getTrackbarPos('highV_silver', MASK_WINDOW_NAME_2)
+        
+        self.gray_lower_gold = cv2.getTrackbarPos('gray_lower_gold', BW_WINDOW_NAME_1)
+        self.Inverted_filter_gold = cv2.getTrackbarPos('Inverted_filter_gold', BW_WINDOW_NAME_1)
+        self.kernal_size_gold = cv2.getTrackbarPos('kernal_size_gold', BW_WINDOW_NAME_1)
+        self.erosion_itterations_gold = cv2.getTrackbarPos('erosion_itterations_gold', BW_WINDOW_NAME_1)
+        self.dilation_itterations_gold = cv2.getTrackbarPos('dilation_itterations_gold', BW_WINDOW_NAME_1)
+        
+        self.gray_lower_silver = cv2.getTrackbarPos('gray_lower_silver', BW_WINDOW_NAME_2)
+        self.Inverted_filter_silver = cv2.getTrackbarPos('Inverted_filter_silver', BW_WINDOW_NAME_2)
+        self.kernal_size_silver = cv2.getTrackbarPos('kernal_size_silver', BW_WINDOW_NAME_2)
+        self.erosion_itterations_silver = cv2.getTrackbarPos('erosion_itterations_silver', BW_WINDOW_NAME_2)
+        self.dilation_itterations_silver = cv2.getTrackbarPos('dilation_itterations_silver', BW_WINDOW_NAME_2)
+        
         self.min_width = cv2.getTrackbarPos('min_width', IMG_WINDOW_NAME)
         self.max_width = cv2.getTrackbarPos('max_width', IMG_WINDOW_NAME)
         self.number_of_lines = cv2.getTrackbarPos('number_of_lines', IMG_WINDOW_NAME)
-        
-        
-        self.crop_width_decimal =  max(float(cv2.getTrackbarPos('frame_width', IMG_WINDOW_NAME)/100), 0.01)
-        self.rows_to_watch_decimal = max(float(cv2.getTrackbarPos('rows_to_watch', IMG_WINDOW_NAME)/100), 0.01)
-        self.rows_offset_decimal = max(float(cv2.getTrackbarPos('rows_offset', IMG_WINDOW_NAME)/100), 0.01)
-
-
+        crop_width_percent = cv2.getTrackbarPos('frame_width', IMG_WINDOW_NAME)
+        rows_to_watch_percent = cv2.getTrackbarPos('rows_to_watch', IMG_WINDOW_NAME)
+        rows_offset_percent = cv2.getTrackbarPos('rows_offset', IMG_WINDOW_NAME)
         self.error_threshold = float(cv2.getTrackbarPos('error_threshold', IMG_WINDOW_NAME)/100)
         self.camera_centerline = float(cv2.getTrackbarPos('camera_centerline', IMG_WINDOW_NAME)/100)
         
@@ -413,15 +528,25 @@ class Calibration(Node):
         height, width, channels = frame.shape
 
         # Setting lower constraints on camera values
+        if crop_width_percent < 1:
+            crop_width_percent = 1
+        if rows_to_watch_percent < 1:
+            rows_to_watch_percent = 1
+        if rows_offset_percent < 1:
+            rows_offset_percent = 1
+
         # Vertical crop/pan
-        rows_to_watch = int(height * self.rows_to_watch_decimal)
-        rows_offset = int(height * (1 - self.rows_offset_decimal))
+        rows_to_watch_decimal = rows_to_watch_percent / 100
+        rows_offset_decimal = rows_offset_percent / 100
+        crop_width_decimal = crop_width_percent / 100
+        rows_to_watch = int(height * rows_to_watch_decimal)
+        rows_offset = int(height * (1 - rows_offset_decimal))
 
         # Horizontal crop
         start_height = int(height - rows_offset)
         bottom_height = int(start_height + rows_to_watch)
-        left_width = int((width / 2) * (1 - self.crop_width_decimal))
-        right_width = int((width / 2) * (1 + self.crop_width_decimal))
+        left_width = int((width / 2) * (1 - crop_width_decimal))
+        right_width = int((width / 2) * (1 + crop_width_decimal))
 
         img = frame[start_height:bottom_height, left_width:right_width]
         image_width = right_width-left_width
@@ -429,36 +554,69 @@ class Calibration(Node):
 
         # Changing color space to HSV
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-        lower = np.array([self.Hue_low, self.Saturation_low, self.Value_low])
-        higher = np.array([self.Hue_high, self.Saturation_high, self.Value_high])
-        mask = cv2.inRange(hsv, lower, higher)
+        
+        lower_gold = np.array([self.Hue_low_gold, self.Saturation_low_gold, self.Value_low_gold])
+        higher_gold = np.array([self.Hue_high_gold, self.Saturation_high_gold, self.Value_high_gold])
+        
+        lower_silver = np.array([self.Hue_low_silver, self.Saturation_low_silver, self.Value_low_silver])
+        higher_silver = np.array([self.Hue_high_silver, self.Saturation_high_silver, self.Value_high_silver])
+        
+        mask_gold = cv2.inRange(hsv, lower_gold, higher_gold)
+        mask_silver = cv2.inRange(hsv, lower_silver, higher_silver)
 
         # Inverting color filter option
-        if self.inverted_filter == 1:
-            bitwise_mask = cv2.bitwise_and(hsv, hsv, mask=cv2.bitwise_not(mask))
+        if self.Inverted_filter_gold == 1:
+            bitwise_mask_gold = cv2.bitwise_and(hsv, hsv, mask=cv2.bitwise_not(mask_gold))
         else:
-            bitwise_mask = cv2.bitwise_and(hsv, hsv, mask=mask)
+            bitwise_mask_gold = cv2.bitwise_and(hsv, hsv, mask=mask_gold)
+            
+        if self.Inverted_filter_silver == 1:
+            bitwise_mask_silver = cv2.bitwise_and(hsv, hsv, mask=cv2.bitwise_not(mask_silver))
+        else:
+            bitwise_mask_silver = cv2.bitwise_and(hsv, hsv, mask=mask_silver)
+
 
         # Changing to gray color space
-        gray = cv2.cvtColor(bitwise_mask, cv2.COLOR_BGR2GRAY)
+        gray_gold = cv2.cvtColor(bitwise_mask_gold, cv2.COLOR_BGR2GRAY)
+        gray_silver = cv2.cvtColor(bitwise_mask_silver, cv2.COLOR_BGR2GRAY)
 
         # Changing to black and white color space
         gray_upper = 255
-        (dummy, blackAndWhiteImage) = cv2.threshold(gray, self.gray_lower, gray_upper, cv2.THRESH_BINARY)
+        (dummy_gold, blackAndWhiteImage_gold) = cv2.threshold(gray_gold, self.gray_lower_gold, gray_upper, cv2.THRESH_BINARY)
+        (dummy_silver, blackAndWhiteImage_silver) = cv2.threshold(gray_silver, self.gray_lower_silver, gray_upper, cv2.THRESH_BINARY)
         # blackAndWhiteImage = cv2.adaptiveThreshold(gray, gray_upper, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
         
         # Get rid of white noise from grass
-        kernel = np.ones((self.kernal_size, self.kernal_size), np.uint8)
-        blurred = cv2.blur(blackAndWhiteImage,(self.kernal_size, self.kernal_size))
-        erosion = cv2.erode(blurred, kernel, iterations = self.erosion_itterations)
-        dilation = cv2.dilate(erosion, kernel, iterations = self.dilation_itterations)
+        kernel_gold = np.ones((self.kernal_size_gold, self.kernal_size_gold), np.uint8)
+        kernel_silver = np.ones((self.kernal_size_silver, self.kernal_size_silver), np.uint8)
+        blurred_gold = cv2.blur(blackAndWhiteImage_gold,(self.kernal_size_gold, self.kernal_size_gold))
+        blurred_silver = cv2.blur(blackAndWhiteImage_silver,(self.kernal_size_silver, self.kernal_size_silver))
+        erosion_gold = cv2.erode(blurred_gold, kernel_gold, iterations = self.erosion_itterations_gold)
+        erosion_silver = cv2.erode(blurred_silver, kernel_silver, iterations = self.erosion_itterations_silver)
+        dilation_gold = cv2.dilate(erosion_gold, kernel_gold, iterations = self.dilation_itterations_gold)
+        dilation_silver = cv2.dilate(erosion_silver, kernel_silver, iterations = self.dilation_itterations_silver)
+        
+        
+        
 
         # Black and white image
-        (dummy, blackAndWhiteImage) = cv2.threshold(dilation, self.gray_lower, gray_upper, cv2.THRESH_BINARY)
+        (dummy_gold, blackAndWhiteImage_gold) = cv2.threshold(dilation_gold, self.gray_lower_gold, gray_upper, cv2.THRESH_BINARY)
+        (dummy_silver, blackAndWhiteImage_silver) = cv2.threshold(dilation_silver, self.gray_lower_silver, gray_upper, cv2.THRESH_BINARY)
 
         # Finding contours in image
-        contours, dummy = cv2.findContours(blackAndWhiteImage, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-
+        contours_gold, dummy_gold = cv2.findContours(blackAndWhiteImage_gold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+        contours_silver, dummy_silver = cv2.findContours(blackAndWhiteImage_silver, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+        
+        '''
+        #My personal attampt at publishing the silver contour value 
+        msg = Float32()
+        msg.data = float(self.p)
+        self.publisher_.publish(msg)
+        string_contours = str(msg.data)
+        self.get_logger().info(string_contours)
+        self.p  = len(contours_silver)
+       ''' 
+        
         # Creating points to be drawn on image
         cam_center_line_x = int(image_width * self.camera_centerline)
         start_point = (cam_center_line_x, 0)
@@ -478,7 +636,7 @@ class Calibration(Node):
         cy_list = []
 
         # plotting contours and their centroids
-        for contour in contours[:self.number_of_lines]:
+        for contour in contours_gold[:self.number_of_lines]:
             [x, y], [w, h], phi = cv2.minAreaRect(contour)
             rect = cv2.minAreaRect(contour)
             if self.min_width < w < self.max_width:
@@ -565,8 +723,10 @@ class Calibration(Node):
 
         # plotting results
         cv2.imshow(IMG_WINDOW_NAME, img)
-        cv2.imshow(MASK_WINDOW_NAME, mask)
-        cv2.imshow(BW_WINDOW_NAME, blackAndWhiteImage)
+        cv2.imshow(MASK_WINDOW_NAME_1, mask_gold)
+        cv2.imshow(MASK_WINDOW_NAME_2, mask_silver)
+        cv2.imshow(BW_WINDOW_NAME_1, blackAndWhiteImage_gold)
+        cv2.imshow(BW_WINDOW_NAME_2, blackAndWhiteImage_silver)
         cv2.waitKey(1)
 
         # Write files to yaml file for storage. TODO write individual yaml files for each node
@@ -575,45 +735,77 @@ class Calibration(Node):
         f.write(
             f"{LD_NODE_NAME}: \n"
             f"  ros__parameters: \n"
-            f"    Hue_low : {self.Hue_low} \n"
-            f"    Hue_high : {self.Hue_high} \n"
-            f"    Saturation_low : {self.Saturation_low} \n"
-            f"    Saturation_high : {self.Saturation_high} \n"
-            f"    Value_low : {self.Value_low} \n"
-            f"    Value_high : {self.Value_high} \n"
+            
+            f"    Hue_low_gold : {self.Hue_low_gold} \n"
+            f"    Hue_high_gold : {self.Hue_high_gold} \n"
+            f"    Saturation_low_gold : {self.Saturation_low_gold} \n"
+            f"    Saturation_high_gold : {self.Saturation_high_gold} \n"
+            f"    Value_low_gold : {self.Value_low_gold} \n"
+            f"    Value_high_gold : {self.Value_high_gold} \n"
+            
+            f"    Hue_low_silver : {self.Hue_low_silver} \n"
+            f"    Hue_high_silver : {self.Hue_high_silver} \n"
+            f"    Saturation_low_silver : {self.Saturation_low_silver} \n"
+            f"    Saturation_high_silver : {self.Saturation_high_silver} \n"
+            f"    Value_low_silver : {self.Value_low_silver} \n"
+            f"    Value_high_silver : {self.Value_high_silver} \n"
+            
             f"    number_of_lines : {self.number_of_lines} \n"
             f"    error_threshold : {self.error_threshold} \n"
             f"    Width_min : {self.min_width} \n"
             f"    Width_max : {self.max_width} \n"
-            f"    gray_lower : {self.gray_lower} \n"
-            f"    inverted_filter : {self.inverted_filter} \n"
-            f"    kernal_size : {self.kernal_size} \n"
-            f"    erosion_itterations : {self.erosion_itterations} \n"
-            f"    dilation_itterations : {self.dilation_itterations} \n"
-            f"    crop_width_decimal : {self.crop_width_decimal} \n"
-            f"    rows_to_watch_decimal : {self.rows_to_watch_decimal} \n"
-            f"    rows_offset_decimal : {self.rows_offset_decimal} \n"
+            
+            f"    gray_lower_gold : {self.gray_lower_gold} \n"
+            f"    Inverted_filter_gold : {self.Inverted_filter_gold} \n"
+            f"    kernal_size_gold : {self.kernal_size_gold} \n"
+            f"    erosion_itterations_gold : {self.erosion_itterations_gold} \n"
+            f"    dilation_itterations_gold : {self.dilation_itterations_gold} \n"
+            
+            f"    gray_lower_silver : {self.gray_lower_silver} \n"
+            f"    Inverted_filter_silver : {self.Inverted_filter_silver} \n"
+            f"    kernal_size_silver : {self.kernal_size_silver} \n"
+            f"    erosion_itterations_silver : {self.erosion_itterations_silver} \n"
+            f"    dilation_itterations_silver : {self.dilation_itterations_silver} \n"
+            
+            f"    camera_start_height : {start_height} \n"
+            f"    camera_bottom_height : {bottom_height} \n"
+            f"    camera_left_width : {left_width} \n"
+            f"    camera_right_width : {right_width} \n"
             f"    camera_centerline : {self.camera_centerline} \n"
             f"{CALIBRATION_NODE_NAME}: \n"
             f"  ros__parameters: \n"
-            f"    Hue_low : {self.Hue_low} \n"
-            f"    Hue_high : {self.Hue_high} \n"
-            f"    Saturation_low : {self.Saturation_low} \n"
-            f"    Saturation_high : {self.Saturation_high} \n"
-            f"    Value_low : {self.Value_low} \n"
-            f"    Value_high : {self.Value_high} \n"
+            
+            f"    Hue_low_gold : {self.Hue_low_gold} \n"
+            f"    Hue_high_gold : {self.Hue_high_gold} \n"
+            f"    Saturation_low_gold : {self.Saturation_low_gold} \n"
+            f"    Saturation_high_gold : {self.Saturation_high_gold} \n"
+            f"    Value_low_gold : {self.Value_low_gold} \n"
+            f"    Value_high_gold : {self.Value_high_gold} \n"
+            
+            f"    Hue_low_silver : {self.Hue_low_silver} \n"
+            f"    Hue_high_silver : {self.Hue_high_silver} \n"
+            f"    Saturation_low_silver : {self.Saturation_low_silver} \n"
+            f"    Saturation_high_silver : {self.Saturation_high_silver} \n"
+            f"    Value_low_silver : {self.Value_low_silver} \n"
+            f"    Value_high_silver : {self.Value_high_silver} \n"
+            
             f"    number_of_lines : {self.number_of_lines} \n"
             f"    error_threshold : {self.error_threshold} \n"
             f"    Width_min : {self.min_width} \n"
             f"    Width_max : {self.max_width} \n"
-            f"    gray_lower : {self.gray_lower} \n"
-            f"    inverted_filter : {self.inverted_filter} \n"
-            f"    kernal_size : {self.kernal_size} \n"
-            f"    erosion_itterations : {self.erosion_itterations} \n"
-            f"    dilation_itterations : {self.dilation_itterations} \n"
-            f"    crop_width_decimal : {self.crop_width_decimal} \n"
-            f"    rows_to_watch_decimal : {self.rows_to_watch_decimal} \n"
-            f"    rows_offset_decimal : {self.rows_offset_decimal} \n"
+            
+            f"    gray_lower_gold : {self.gray_lower_gold} \n"
+            f"    Inverted_filter_gold : {self.Inverted_filter_gold} \n"
+            f"    kernal_size_gold : {self.kernal_size_gold} \n"
+            f"    erosion_itterations_gold : {self.erosion_itterations_gold} \n"
+            f"    dilation_itterations_gold : {self.dilation_itterations_gold} \n"
+            
+            f"    gray_lower_silver : {self.gray_lower_silver} \n"
+            f"    Inverted_filter_silver : {self.Inverted_filter_silver} \n"
+            f"    kernal_size_silver : {self.kernal_size_silver} \n"
+            f"    erosion_itterations_silver : {self.erosion_itterations_silver} \n"
+            f"    dilation_itterations_silver : {self.dilation_itterations_silver} \n"
+            
             f"    camera_centerline : {self.camera_centerline} \n"
             f"{LG_NODE_NAME}: \n"
             f"  ros__parameters: \n"
@@ -660,7 +852,7 @@ class Calibration(Node):
             else:
                 data_c = data
             return data_c 
-
+            
 
 def main(args=None):
     rclpy.init(args=args)
@@ -681,7 +873,11 @@ def main(args=None):
         CAL_publisher.destroy_node()
         rclpy.shutdown()
         print(f"{CALIBRATION_NODE_NAME} shut down successfully.")
+        
+        
+
 
 
 if __name__ == '__main__':
     main()
+
