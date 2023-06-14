@@ -1,3 +1,5 @@
+# Node Config File from nav2_pkg
+
 # sensors/hardware
 all_components: 1
 simulator: 0
