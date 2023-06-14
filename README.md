@@ -74,10 +74,10 @@ The baseline goals of our team's final project were implementing obstacle avoida
 * Adapting the various nodes, creating unique publishers/subscribers, and implementing all of our code within ROS2
 <hr>
 
-## Final Project Videos
+## Final Project Videos (Click Below)
 **Final Demo**
 
-[<img src="images\finalDemo.PNG" width="300">](https://drive.google.com/file/d/1g-VeBIl5gdUQflPbHFEFg3UOX2X36orz/view?usp=drive_link)
+[<img src="images\finalDemo.PNG" width="600">](https://drive.google.com/file/d/1g-VeBIl5gdUQflPbHFEFg3UOX2X36orz/view?usp=drive_link)
 
 
 **Clips**
