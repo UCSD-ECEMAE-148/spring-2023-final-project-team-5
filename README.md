@@ -68,7 +68,7 @@ The baseline goals of our team's final project were implementing obstacle avoida
 
 Everything Together (3rd Person)
 
-[<img src="images\everything.png" width="50%">](https://drive.google.com/file/d/1p2i5tRBihoJaQEioC826KT2X-poMZBU0/view?usp=drive_link)
+[<img src="images\everything.PNG" width="300">](https://drive.google.com/file/d/1p2i5tRBihoJaQEioC826KT2X-poMZBU0/view?usp=drive_link)
 
 Everything Together (POV)
 
