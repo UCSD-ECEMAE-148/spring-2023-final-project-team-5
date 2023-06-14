@@ -14,7 +14,8 @@
 <div align="center">
     <img src="images\ourRobot.PNG" width="500" height="400">
 </div>
-
+<br>
+<hr>
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -32,8 +33,14 @@
       </ul>
     <li><a href="#hardware">Hardware</a></li>
     <li><a href="#gantt-chart">Gantt Chart</a></li>
+    <li><a href="#course-deliverables">Course Deliverables</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#contacts">Contacts</a></li>
   </ol>
 </details>
+<hr>
+
+
 
 ## Team Members
 Shasta Subramanian (ECE) - [LinkedIn](https://www.linkedin.com/in/shasta-subramanian/)
@@ -43,14 +50,17 @@ Armond Greenberg (MAE)
 Jacob Cortez (MAE)
 
 Zixu Hao (ECE - UPS Student)
+<hr>
 
 ## Abstract
 The baseline goals of our team's final project were implementing obstacle avoidance and pedestrian detection on top of the lane following program. Using the Lidar and OakD Lite Camera, the robot is able to closely follow the yellow-dotted line on the track, make optimal turning decisions to avoid any objects in the pathway, and stop if a pedestrian is detected.
+<hr>
 
 ## What We Promised
 * Obstacle avoidance where if the obstacle is not a person the robot swerves around and continues on its path using LIDAR
 * If a pedestrian is detected the robot will stop until the person is no longer detected using the OakD Lite Camera
 * The previous two objectives would also be achieved while line following and within ROS2
+<hr>
 
 ## Accomplishments
 * Achieved all of our promised goals successfully 
@@ -58,10 +68,12 @@ The baseline goals of our team's final project were implementing obstacle avoida
 * Refined obstacle avoidance algorithm
 * Extremely accurate person detection (almost too good)
   * Works on real humans and print out images
+<hr>
 
 ## Challenges
 * Combining our obstacle avoidance program on the track with the pedestrian detection proved to be more complicated than initially expected
 * Adapting the various nodes, creating unique publishers/subscribers, and implementing all of our code within ROS2
+<hr>
 
 ## Final Project Videos
 **Final Clips**
@@ -92,6 +104,7 @@ Early Pedestrian Detection
 
 [<img src="images\earlyPed.PNG" width="300">](https://drive.google.com/file/d/1O3riZQaE1dmO9sFID_FuAqzC17s5VZ9x/view?usp=drive_link)
 
+<hr>
 
 ## Software
 ### Obstacle Avoidance
@@ -99,6 +112,7 @@ We used the LD06 Lidar to implement obstacle avoidance within ROS2. The program 
 
 ### Pedestrian Detection
 We used the DepthAI package to implement the pedestrian detection within ROS2. We took advantage of the Tiny YOLO neural network setup found within the examples. We filter through the detections to check strictly for a "person" with adjustable confidence levels. We found that a 60% confidence level worked pretty well for our project's use cases. Surprisingly, we found better results with real humans walking in front of the robot (it would detect their feet and be able to classify them as "person" objects). We were also able to successfully scan various printout images of people with high accuracy and success. The programming logic for the pedestrian detection is very simple in that if a "person" has been detected in the image passed through by the camera, the VESC throttles are set to 0, stopping the car, until the person has moved out of the field of view. 
+<hr>
 
 ## Hardware 
 
@@ -152,8 +166,11 @@ __Camera Mount__
 __Circuit Diagram__
 <img width="689" alt="image" src="https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/114700732/3ea9eb5f-e87d-42db-82ef-71abc0a1a276">
 
+<hr>
+
 ## Gantt Chart
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/ac5c8ead-56f3-41d3-8ed3-f4c0331c360c)
+<hr>
 
 ## Course Deliverables
 Here are our autonomous laps as part of our class deliverables and preparation for the final project:
@@ -165,20 +182,24 @@ Here are our autonomous laps as part of our class deliverables and preparation f
 
 Here are our presentation slides for the weekly project updates and final presentation:
 [Team 5 Presentation](https://docs.google.com/presentation/d/1sPPWAnGMisoc15QvhqSP7sxDoCSJ5Mn_mOzy9liQnEs/edit?usp=sharing)
+<hr>
+
 
 ## Acknowledgements
-Special thanks to Professor Jack Silberman and TAs (Kishore Nukala & Moises Lopez) and  for all of your support!
+Special thanks to Professor Jack Silberman and TAs (Kishore Nukala & Moises Lopez) for all the support!
 
-**Credited Programs Referenced:**
+**Programs Referenced:**
 * [Spring 2022 Team 1](https://guitar.ucsd.edu/maeece148/index.php/2022SpringTeam1)
 * [DepthAI](https://github.com/luxonis/depthai-python)
 * [UCSD Robocar Framework](https://gitlab.com/ucsd_robocar2)
 
+<hr>
+
 ## Contacts
 
-* Shasta Subramanian - shasta.subramanian@gmail.com | s1subram@ucsd.edu
-* Armond Greenberg -
-* Zixu Hao - 
-* Jacob Chandler - 
+* Shasta Subramanian - s1subram@ucsd.edu | shasta.subramanian@gmail.com
+* Armond Greenberg - argreenb@ucsd.edu
+* Zixu Hao - ax008324@ucsd.edu
+* Jacob Chandler - j1cortez@ucsd.edu
 
 
