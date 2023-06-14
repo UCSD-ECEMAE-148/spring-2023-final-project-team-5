@@ -25,6 +25,10 @@ Team 5 Spring 2023
     <li><a href="#challenges">Challenges</a></li>
     <li><a href="#final-project-videos">Final Project Videos</a></li>
     <li><a href="#software">Software</a></li>
+        <ul>
+        <li><a href="#obstacle-avoidance">Obstacle Avoidance</a></li>
+        <li><a href="#pedestrian-detection">Pedestrian Detection</a></li>
+      </ul>
     <li><a href="#hardware">Hardware</a></li>
     <li><a href="#gantt-chart">Gantt Chart</a></li>
   </ol>
@@ -63,6 +67,7 @@ The goals of our team's final project was implementing obstacle avoidance and pe
 Everything Together (3rd Person)
 
 Everything Together (POV)
+[<img src="images\pov.png" width="50%">](https://drive.google.com/file/d/1Jt7cPzaUdMSlrA__SZ71dYU6QvQGNySb/view?usp=drive_link)
 
 Obstacle Avoidance
 
@@ -76,7 +81,9 @@ Early Obstacle Avoidance
 Early Pedestrian Detection
 
 ## Software
-input
+### Obstacle Avoidance
+
+### Pedestrian Detection
 
 ## Hardware 
 
