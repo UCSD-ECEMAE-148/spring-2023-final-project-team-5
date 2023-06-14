@@ -46,7 +46,7 @@ Shasta Subramanian (ECE) - [LinkedIn](https://www.linkedin.com/in/shasta-subrama
 
 Armond Greenberg (MAE)
 
-Jacob Cortez (MAE)
+Jacob Cortez (MAE) - [LinkedIn](https://www.linkedin.com/in/jacob-cortez-791488230/)
 
 Zixu Hao (ECE - UPS Student)
 <hr>
