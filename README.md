@@ -75,7 +75,12 @@ The baseline goals of our team's final project were implementing obstacle avoida
 <hr>
 
 ## Final Project Videos
-**Final Clips**
+**Final Demo**
+
+[<img src="images\finalDemo.PNG" width="300">](https://drive.google.com/file/d/1g-VeBIl5gdUQflPbHFEFg3UOX2X36orz/view?usp=drive_link)
+
+
+**Clips**
 
 Everything Together (3rd Person)
 
