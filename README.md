@@ -11,7 +11,7 @@
     </p>
 </div>
 
-<img src="images\ourRobot.png">
+![Our Robot]("images\ourRobot.png")
 
 <!-- TABLE OF CONTENTS -->
 <details>
