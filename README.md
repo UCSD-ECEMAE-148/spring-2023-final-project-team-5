@@ -11,7 +11,9 @@
     </p>
 </div>
 
-![Our Robot](images\ourRobot.png)
+<div align="center">
+    <img src="images\ourRobot.PNG" width="500" height="400">
+</div>
 
 <!-- TABLE OF CONTENTS -->
 <details>
