@@ -46,7 +46,7 @@ Shasta Subramanian (ECE) - [LinkedIn](https://www.linkedin.com/in/shasta-subrama
 
 Armond Greenberg (MAE)
 
-Jacob Cortez (MAE) - [LinkedIn](https://www.linkedin.com/in/jacob-cortez-791488230/)
+Jacob Cortez (MAE)
 
 Zixu Hao (ECE - UPS Student)
 <hr>
@@ -246,7 +246,7 @@ Special thanks to Professor Jack Silberman and TAs (Kishore Nukala & Moises Lope
 
 ## Contacts
 
-* Shasta Subramanian - s1subram@ucsd.edu | shasta.subramanian@gmail.com
+* Shasta Subramanian - s1subram@ucsd.edu | shasta.subramanian@gmail.com | [LinkedIn](https://www.linkedin.com/in/shasta-subramanian/)
 * Armond Greenberg - 
 * Zixu Hao - 
 * Jacob Chandler - 
