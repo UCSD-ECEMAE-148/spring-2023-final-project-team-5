@@ -107,6 +107,18 @@ Early Pedestrian Detection
 <hr>
 
 ## Software
+
+### Overall Architecture
+Our project was completed entirely with ROS2 navigation in python. The 'rclpy' package is being used to control the robot and our primary control logic consists of the Calibration, Person Detection, Lane Detection, Lane Guidance, and nodes.
+
+- The **Calibration Node** was adapted from Spring 2022 Team 1 and updated for our use case. We strictly needed the gold mask to follow the yellow lines and implemented our own lane following code.
+  
+- The **Person Detection Node** was full created for our team's project implementation. We create a new oakd node that sends the same image used by the depthai package for person detection to our guidance node so that the pedestrian detection can run concurrently with the line following. 
+
+- The **Lane Detection Node** is used to control the robot within the track. We adapt the PID function to calculate the error and set new values to determine the optimal motion of the car to continue following the yellow lines in the lane. This is done by taking the raw camera image, using callibrated color values to detect yellow, and ultimately using the processed image to publish the control values that are are subscribed by the lane guidance node.
+
+- Ultimately, the "magic" happens within the **Lane Guidance Node** which is responsible for directly controlling car's movement. We have adapted the Lidar subscription from Spring 2022 Team 1 to detect obstacles within a particular viewing range in front of our car. The lane guidance node subscribes to lane detection node and our Person Detection nodes to correctly traverse the path. If no obstacles are detected, the car will simply continue its line following program, sticking to the yellow lines in the middle of the lane. If an obstacle is detected by the lidar, the car will correspondingly make a turn based on the object's angle and distance. As it routes around the object, the car continues to check for obstacles to avoid any collision and come back to the path. Additionally, if the subscription to the person_detected node is triggered as active, then the car knows there is a pedestrian in view and will stop.
+
 ### Obstacle Avoidance
 We used the LD06 Lidar to implement obstacle avoidance within ROS2. The program logic is quite simple in that we are constantly scanning the 60 degrees in front of the robot. If an object is detected within our distace threshold, the robot will accordingly make a turn to avoid it. Our logic for selecting which direction to turn in is quite simple in that if the object is on the left side, we first turn right and otherwise we turn left. Both turning directions include a corrective turn to bring the robot back to the centerline of the track and continue lane following.
 
