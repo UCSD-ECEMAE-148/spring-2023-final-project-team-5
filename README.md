@@ -11,7 +11,7 @@
     </p>
 </div>
 
-![Our Robot]("images\ourRobot.png")
+![Our Robot](images\ourRobot.png)
 
 <!-- TABLE OF CONTENTS -->
 <details>
