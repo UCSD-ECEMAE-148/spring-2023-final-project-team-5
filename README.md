@@ -145,31 +145,38 @@ __Parts List__
 * 5V, 4A power supply for Jetson Nano
 
 __Baseplate__
-![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/26fd8e2c-5acf-48f4-9e47-6c7ec2a96f17)
+
+<img src="images\baseplate.PNG" height="300">
 <!--![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/e6602891-79b6-4dc2-9041-1f3944957bf0)-->
 
 __Jetson Nano Case__
-![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/2102a021-ed98-42e6-920e-41a2522bfe3f)
+
+<img src="images\jetsonCase.PNG" height="300">
 <!--![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/63896700-373c-46b1-9988-9b9c2bb5c747)
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/9ef2de13-563a-4913-a153-63b0cf8d14c7)
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/17c07153-c1a1-49b8-80e3-6d8203097c39)-->
-**Credit to https://www.thingiverse.com/thing:3778338**
+
+Credit: https://www.thingiverse.com/thing:3778338
 
 __Camera Mount__
-![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/8272498f-241f-45ee-80ac-fcd6efa82b10)
-**Credit to Matstic at https://www.thingiverse.com/thing:5336496**
+
+<img src="images\cameraMount.PNG" height="300">
+
+Credit: https://www.thingiverse.com/thing:5336496
 <!--![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/5c09cbd4-6bd3-4c49-9e59-29f13cd2f1fd)
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/dfee34c8-abdf-4bed-a303-4a3d9dcf1e5c)
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/979798ce-7823-4885-bd02-62e6fe5d953e)
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/fd08ccc0-b16f-4b23-b3a5-b96e650e1717)-->
 
 __Circuit Diagram__
-<img width="689" alt="image" src="https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/114700732/3ea9eb5f-e87d-42db-82ef-71abc0a1a276">
+
+<img src="images\circuitDiagram.PNG" height="300">
 
 <hr>
 
 ## Gantt Chart
-![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/ac5c8ead-56f3-41d3-8ed3-f4c0331c360c)
+
+<img src="images\projectGantt.PNG" height="300">
 <hr>
 
 ## Course Deliverables
