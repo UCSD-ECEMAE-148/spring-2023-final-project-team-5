@@ -64,21 +64,33 @@ The goals of our team's final project was implementing obstacle avoidance and pe
 
 ## Final Project Videos
 **Final Clips**
+
 Everything Together (3rd Person)
 
+[<img src="images\everything.png" width="50%">](https://drive.google.com/file/d/1p2i5tRBihoJaQEioC826KT2X-poMZBU0/view?usp=drive_link)
+
 Everything Together (POV)
+
 [<img src="images\pov.png" width="50%">](https://drive.google.com/file/d/1Jt7cPzaUdMSlrA__SZ71dYU6QvQGNySb/view?usp=drive_link)
 
 Obstacle Avoidance
 
+[<img src="images\earlyAvoid.png" width="50%">](https://drive.google.com/file/d/1Pd8OklPu9tDEfgzJNNkNkR_zGN-SYbMb/view?usp=drive_link)
 
 Pedestrian Detection
 
+[<img src="images\personDetected.png" width="50%">](https://drive.google.com/file/d/11qNUHqOkSNa8mivNA_k-UFk8U7LfdoAp/view?usp=drive_link)
 
 **Progress Clips**
+
 Early Obstacle Avoidance
 
+[<img src="images\earlierAvoid.png" width="50%">](https://drive.google.com/file/d/14KP8B8-IEhhGi5ObEtc7LC3ndSPOTO66/view?usp=drive_link)
+
 Early Pedestrian Detection
+
+[<img src="images\earlyPed.png" width="50%">](https://drive.google.com/file/d/1O3riZQaE1dmO9sFID_FuAqzC17s5VZ9x/view?usp=drive_link)
+
 
 ## Software
 ### Obstacle Avoidance
