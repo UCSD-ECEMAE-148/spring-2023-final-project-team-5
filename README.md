@@ -1,26 +1,46 @@
-![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/fcdeffbb-8d74-45d1-8e2b-c41bc4ba6e2f)
+<div id="top"></div>
 
-# Team 5 Final Project: Obstacle and Pedestrian Avoidance Within ROS2 
+<h1 align="center">Obstacle Avoidance and Pedestrian Detection with ROS2</h1>
 
-## TEAM MEMBERS
-### **Shasta Subramanian - Computer Engineering**
-### **Armond Greenberg - Mechanical Engineering**
-### **Jacob Cortez - Mechanical Engineering**
-### **Zixu Hao - Electrical Engineering (UPS Student)**
+<br />
+<div align="center">
+    <img src="images\UCSDLogo.png" alt="Logo" width="400" height="100">
+  </a>
+<h3>ECE-MAE 148 Final Project</h3>
+<p>
+Team 5 Spring 2023
+</p>
+</div>
 
-## Project Abstract
-### Our final project was themed primarily around obstacle avoidance utilizing the LIDAR and OakD Lite Camera.
-### *What We Promised*
-* Obstacle avoidance where if the obstacle is not a person the robot swerves around the around continues on its path using LIDAR
-* If a pedestrian is detected the robot will stop until a person is no longer detected using the OakD Lite Camera
+**insert image of robot**
+
+## Team Members
+Shasta Subramanian (ECE)
+
+Armond Greenberg (MAE)
+
+Jacob Cortez (MAE)
+
+Zixu Hao (ECE - UPS Student)
+
+## Abstract
+The goals of our team's final project was implementing obstacle avoidance and pedestrian detection on top of the lane following program. Using the Lidar and OakD Lite Camera, the robot is able to closely follow the yellow-dotted line on the track, make optimal turning decisions to avoid any objects in the pathway, and stop if a pedestrian is detected.
+
+## What We Promised
+* Obstacle avoidance where if the obstacle is not a person the robot swerves around and continues on its path using LIDAR
+* If a pedestrian is detected the robot will stop until the person is no longer detected using the OakD Lite Camera
 * The previous two objectives would also be achieved while line following and within ROS2
-### Challenges
-* Incorporating all of the various files, publishers, and subscribers within ROS2
 
-### Accomplishments
-* We were able to achieve all of our promised goals successfully and had time to fine tune and refine our robot.
-* Our robot is able to consistently perform its obstacle avoidance and pedestrian detection in ROS2.
+## Challenges
+* Combining our obstacle avoidance program on the track with the pedestrian detection proved to be more complicated than initially expected
+* Adapting the various nodes, creating unique publishers/subscribers, and implementing all of our code within ROS2
 
+## Accomplishments
+* Achieved all of our promised goals successfully 
+* Completed project within ROS2
+* Refined obstacle avoidance algorithm
+* Extremely accurate person detection (almost too good)
+* * Works on real humans and print out images
 
 ## Gantt Chart
 ![image](https://github.com/UCSD-ECEMAE-148/spring-2023-final-project-team-5/assets/110933991/ac5c8ead-56f3-41d3-8ed3-f4c0331c360c)
@@ -94,6 +114,6 @@ __Parts List__
 * GPS: https://youtu.be/IlAwR1aKfdU
 
 ## Acknowledgements
-### A special thank you Prof. Jack Silberman and TAs Moises Lopez and Kishore Nukala for all your help and support!
+Special thanks to Professor Jack Silberman and TAs (Kishore Nukala & Moises Lopez) and  for all of your support!
 
 
