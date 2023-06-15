@@ -16,9 +16,9 @@
 </div>
 <br>
 <hr>
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
+
+
+## Table of Contents
   <ol>
     <li><a href="#team-members">Team Members</a></li>
     <li><a href="#abstract">Abstract</a></li>
@@ -38,7 +38,7 @@
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#contacts">Contacts</a></li>
   </ol>
-</details>
+
 <hr>
 
 ## Team Members
@@ -74,13 +74,15 @@ The baseline goals of our team's final project were implementing obstacle avoida
 * Adapting the various nodes, creating unique publishers/subscribers, and implementing all of our code within ROS2
 <hr>
 
-## Final Project Videos (Click Below)
+## Final Project Videos
+Click any of the clips below to reroute to the video. 
+
 **Final Demo**
 
 [<img src="images\finalDemo.PNG" width="600">](https://drive.google.com/file/d/1g-VeBIl5gdUQflPbHFEFg3UOX2X36orz/view?usp=drive_link)
 
 
-**Clips**
+**Final Clips**
 
 Everything Together (3rd Person)
 
@@ -98,7 +100,7 @@ Pedestrian Detection
 
 [<img src="images\personDetected.PNG" width="300">](https://drive.google.com/file/d/11qNUHqOkSNa8mivNA_k-UFk8U7LfdoAp/view?usp=drive_link)
 
-**Progress Clips**
+**Early Progress Clips**
 
 Early Obstacle Avoidance
 
